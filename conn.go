@@ -114,10 +114,18 @@ func NewConn(timeout time.Duration) (*Conn, error) {
 		Store:      newStore(),
 
 		//Changed this for a more friendly in app name
-		longClientName:  "Simplicity Whatsapp Web Interface",
-		shortClientName: "simplicity.web.za",
+		longClientName:  "https://github.com/bitechsystems/go-whatsapp",
+		shortClientName: "go-whatsapp-web",
 	}
 	return wac, wac.connect()
+}
+
+/*
+Set name to display in the app.
+*/
+func (wac *Conn) SetName(name string, desc string) {
+	wac.longClientName = desc
+	wac.shortClientName = name
 }
 
 // connect should be guarded with wsWriteMutex
