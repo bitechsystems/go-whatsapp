@@ -5,12 +5,13 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 	"fmt"
-	"github.com/Rhymen/go-whatsapp/binary"
-	"github.com/Rhymen/go-whatsapp/crypto/cbc"
-	"github.com/gorilla/websocket"
-	"github.com/pkg/errors"
 	"strconv"
 	"time"
+
+	"github.com/bitechsystems/go-whatsapp/binary"
+	"github.com/bitechsystems/go-whatsapp/crypto/cbc"
+	"github.com/gorilla/websocket"
+	"github.com/pkg/errors"
 )
 
 //writeJson enqueues a json message into the writeChan

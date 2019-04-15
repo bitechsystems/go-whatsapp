@@ -10,9 +10,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Rhymen/go-whatsapp/crypto/cbc"
-	"github.com/Rhymen/go-whatsapp/crypto/curve25519"
-	"github.com/Rhymen/go-whatsapp/crypto/hkdf"
+	"github.com/bitechsystems/go-whatsapp/crypto/cbc"
+	"github.com/bitechsystems/go-whatsapp/crypto/curve25519"
+	"github.com/bitechsystems/go-whatsapp/crypto/hkdf"
 )
 
 /*
@@ -338,7 +338,7 @@ func (wac *Conn) Restore() error {
 			return fmt.Errorf("error decoding s1 message: %v\n", err)
 		}
 	case <-time.After(wac.msgTimeout):
-	
+
 		//check for an error message
 		select {
 		case r := <-loginChan:
@@ -388,7 +388,7 @@ func (wac *Conn) Restore() error {
 			return fmt.Errorf("admin login responded with %d", resp["status"])
 		}
 	case <-time.After(wac.msgTimeout):
-		return fmt.Errorf("restore session login timed out")
+		return fmt.Errorf("restore session login timed out after %d", wac.msgTimeout)
 	}
 
 	info := connResp[1].(map[string]interface{})

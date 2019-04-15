@@ -120,14 +120,6 @@ func NewConn(timeout time.Duration) (*Conn, error) {
 	return wac, wac.connect()
 }
 
-/*
-Set name to display in the app.
-*/
-func (wac *Conn) SetName(name string, desc string) {
-	wac.longClientName = desc
-	wac.shortClientName = name
-}
-
 // connect should be guarded with wsWriteMutex
 func (wac *Conn) connect() (err error) {
 	if wac.connected {
